@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KNCore.BLL.Comm;
+using KNCore.IBLL.Comm;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KNCore.API.Controllers
@@ -11,6 +12,14 @@ namespace KNCore.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IBaseUserBLL _baseUserBLL;
+
+        public ValuesController(IBaseUserBLL userBLL)
+        {
+            _baseUserBLL = userBLL;
+        }
+
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -44,11 +53,10 @@ namespace KNCore.API.Controllers
         }
 
         [HttpGet("test")]
-        public string Usertest()
+        public string Usertest(int id)
         {
-            BaseUserBLL userService = new BaseUserBLL();
-            
-            return "";
+            var Entitys = _baseUserBLL.GetEntity(e => e.Id == id);
+            return "数量为:"+ Entitys.UserName;
         }
     }
 }

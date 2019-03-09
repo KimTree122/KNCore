@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KNCore.Comm\KNCore.Comm.csproj" />
     <ProjectReference Include="..\KNCore.Model\KNCore.Model.csproj" />
   </ItemGroup>
 

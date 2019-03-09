@@ -16,6 +16,11 @@ namespace KNCore.BLL
             SetCurrentDal();
         }
 
+        public void Dispose()
+        {
+            Console.WriteLine("clean");
+        }
+
         public abstract void SetCurrentDal();
 
         public int Add(T entity)
