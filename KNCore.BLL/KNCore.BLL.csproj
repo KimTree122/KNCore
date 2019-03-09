@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KNCore.DAL\KNCore.DAL.csproj" />
+    <ProjectReference Include="..\KNCore.IBLL\KNCore.IBLL.csproj" />
+  </ItemGroup>
+
+</Project>
