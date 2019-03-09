@@ -17,7 +17,7 @@ namespace KIMtest
         public void CreatEntityCls()
         {
             MysqlBaseDbContext<BaseUser> sugarDb = new MysqlBaseDbContext<BaseUser>();
-            sugarDb.Db.DbFirst.Where("sys_dic").CreateClassFile(@"C:\DataBase\SqlClz");
+            sugarDb.Db.DbFirst.Where("sysdic").CreateClassFile(@"C:\DataBase\SqlClz");
             
             Assert.AreEqual(1, 1);
         }

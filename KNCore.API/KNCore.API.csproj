@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\DBtest\Controllers\" />
     <Folder Include="Areas\DBtest\Data\" />
     <Folder Include="Areas\DBtest\Models\" />
-    <Folder Include="Areas\DBtest\Views\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

@@ -36,8 +36,9 @@ namespace KNCore.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] string value)
         {
+            return "post"+ value;
         }
 
         // PUT api/values/5
