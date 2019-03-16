@@ -84,7 +84,7 @@ namespace KIMtest
             BaseUserBLL bus = new BaseUserBLL();
             List<BaseUser> users = bus.GetEntities(bs => bs.Del == false);
             int count = users.Count;
-            Assert.AreEqual(3,count);
+            Assert.AreEqual(2,count);
         }
 
     }

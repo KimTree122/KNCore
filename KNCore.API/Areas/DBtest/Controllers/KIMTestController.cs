@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KNCore.API.Areas.DBtest.Controllers
 {
+    [Route("DBtest/[controller]")]
     public class KIMTestController : Controller
     {
         private readonly ISysDicBLL _sysDicBLL;
@@ -16,11 +17,12 @@ namespace KNCore.API.Areas.DBtest.Controllers
             _sysDicBLL = sysDicBLL;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet("GetSysCount")]
         public string GetSysCount()
         {
             var count = _sysDicBLL.GetEntities(i => 1==1).Count();

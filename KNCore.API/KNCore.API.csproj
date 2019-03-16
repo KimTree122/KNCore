@@ -7,6 +7,9 @@
   <ItemGroup>
     <Folder Include="Areas\DBtest\Data\" />
     <Folder Include="Areas\DBtest\Models\" />
+    <Folder Include="Areas\FileUpDownLoad\Data\" />
+    <Folder Include="Areas\FileUpDownLoad\Models\" />
+    <Folder Include="Areas\FileUpDownLoad\Views\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

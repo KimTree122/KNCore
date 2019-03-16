@@ -24,6 +24,13 @@ namespace KNCore.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //依赖注入
             services.RegisterAppServices();
+            //跨域设置
+            services.AddCors();
+            services.AddCors(options => 
+            {
+                options.AddPolicy("AllowAll",p=>p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+            });
+            services.AddMvc();
 
         }
 
@@ -38,10 +45,8 @@ namespace KNCore.API
             {
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
-            //app.UseMvc();
-
+            app.UseCors("AllowAll");
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -49,6 +54,7 @@ namespace KNCore.API
                   template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
+            app.UseMvc();
         }
     }
 }
