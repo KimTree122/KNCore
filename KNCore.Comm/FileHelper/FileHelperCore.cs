@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,9 @@ namespace KNCore.Comm.FileHelper
         /// 包含应用程序的目录的绝对路径
         /// </summary>
         //private static string _ContentRootPath = _hostingEnvironment.ContentRootPath;
-        private static string _ContentRootPath = ConfigExtensions.Configuration["UploadFileDirectory:FileDirectory"];
+        private static readonly string _ContentRootPath = ConfigExtensions.Configuration["UploadFileDirectory:FileDirectory"];
+
+        private static readonly string _errorImage = ConfigExtensions.Configuration["ImageConifg:errorImage"];
 
         #region 检测指定路径是否存在
 
@@ -496,6 +499,49 @@ namespace KNCore.Comm.FileHelper
         }
         #endregion
 
+        public static async Task<Stream> GetImageAsync(int width, string imgPath)
+        {
+            //图片不存在
+            if (!new FileInfo(imgPath).Exists)
+            {
+                imgPath = _errorImage;
+            }
+            //原图
+            if (width <= 0)
+            {
+                using (var sw = new FileStream(imgPath, FileMode.Open))
+                {
+                    var bytes = new byte[sw.Length];
+                    sw.Read(bytes, 0, bytes.Length);
+                    sw.Close();
+                    var newfilestream = new MemoryStream(bytes);
+                    return await Task.Run(()=> newfilestream);
+                }
+            }
+            //缩小图片
+            using (var imgBmp = new Bitmap(imgPath))
+            {
+                //找到新尺寸
+                var oWidth = imgBmp.Width;
+                var oHeight = imgBmp.Height;
+                var height = oHeight;
+                if (width > oWidth)
+                {
+                    width = oWidth;
+                }
+                else
+                {
+                    height = width * oHeight / oWidth;
+                }
+                var newImg = new Bitmap(imgBmp, width, height);
+                newImg.SetResolution(72, 72);
+                var ms = new MemoryStream();
+                newImg.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                var bytes = ms.GetBuffer();
+                ms.Close();
+                return await Task.Run(() => ms);
+            }
+        }
     }
 
     public class FilesInfo

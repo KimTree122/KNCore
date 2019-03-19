@@ -630,6 +630,18 @@ namespace KNCore.Comm.FileHelper
             }
         }
         #endregion
+
+        /// <summary>
+        /// 获取文件流
+        /// </summary>
+        /// <param name="path">路径</param>
+        /// <returns></returns>
+        public static FileStream ReadFileStream( string path)
+        {
+            var stream = File.OpenRead(path);
+            return stream;
+        }
+
     }
 
     /// <summary>
