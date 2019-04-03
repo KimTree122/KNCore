@@ -55,7 +55,6 @@ namespace KNCore.API.Areas.FileUpDownLoad.Controllers
             }
             memory.Position = 0;
             var file = File(memory, GetContentType(filePath), Path.GetFileName(filePath));
-
             return file;
         }
 

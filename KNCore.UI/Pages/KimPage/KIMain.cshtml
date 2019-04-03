@@ -1,0 +1,23 @@
+﻿@page
+@{
+    ViewData["Title"] = "KIMain";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+
+<div id="app">
+    <el-button>Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+        <p>Try Element</p>
+    </el-dialog>
+</div>
+
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return { visible: false }
+        }
+    })
+</script>
