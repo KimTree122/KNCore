@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KNCore.IBLL.SYS;
+using KNCore.IService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KNCore.API.Areas.DBtest.Controllers
@@ -10,11 +11,11 @@ namespace KNCore.API.Areas.DBtest.Controllers
     [Route("DBtest/[controller]")]
     public class KIMTestController : Controller
     {
-        private readonly ISysDicBLL _sysDicBLL;
+        private readonly IAuthoritySer _sysAuthBLL;
 
-        public KIMTestController(ISysDicBLL sysDicBLL)
+        public KIMTestController(IAuthoritySer sysAuthBLL)
         {
-            _sysDicBLL = sysDicBLL;
+            _sysAuthBLL = sysAuthBLL;
         }
 
         public IActionResult Index()
@@ -22,11 +23,19 @@ namespace KNCore.API.Areas.DBtest.Controllers
             return View();
         }
 
-        [HttpGet("GetSysCount")]
-        public string GetSysCount()
+        [HttpPost("GetAuthCount")]
+        public string GetAuthCount(int id)
         {
-            var count = _sysDicBLL.GetEntities(i => 1==1).Count();
-            return "数量"+count;
+            var body = Request.Form.ToList();
+            var query = Request.QueryString.ToString();
+            return "数量:" + _sysAuthBLL.CountAuth();
         }
+
+        [HttpGet("Mytest")]
+        public string Mytest()
+        {
+            return "mytest";
+        }
+
     }
 }

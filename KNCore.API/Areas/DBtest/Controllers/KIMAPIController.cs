@@ -17,7 +17,8 @@ namespace KNCore.API.Areas.DBtest.Controllers
         private readonly IBaseUserBLL _baseUserBLL;
         private readonly ISysDicBLL _sysDicBLL;
 
-        public KIMAPIController(IBaseUserBLL baseUserBLL,ISysDicBLL sysDicBLL)
+
+        public KIMAPIController(IBaseUserBLL baseUserBLL, ISysDicBLL sysDicBLL)
         {
             _baseUserBLL = baseUserBLL;
             _sysDicBLL = sysDicBLL;
@@ -32,16 +33,17 @@ namespace KNCore.API.Areas.DBtest.Controllers
         [HttpGet("GetDicCount")]
         public string GetDicCount()
         {
-            SysDic sysDic = new SysDic() { diccode = "1", dicname = "1", dickey = "1",dicvalue = "1", dicmeno = "1", order= 1 };
+            SysDic sysDic = new SysDic() { diccode = "1", dicname = "1", dickey = "1", dicvalue = "1", dicmeno = "1", order = 1 };
             int count = _sysDicBLL.Add(sysDic);
-            return "ID:"+count;
+            return "ID:" + count;
         }
 
-        [HttpGet("deldic")]
-        public string DelDic()
+        [HttpDelete("deldic")]
+        public string DelDic(string dickey)
         {
-            int count = _sysDicBLL.DelRange(e => e.dickey == "1");
-            return "删除"+count;
+            var list = Request.Form.ToList();
+            int count = _sysDicBLL.DelRange(e => e.dickey == dickey);
+            return "删除" + count;
         }
 
         [HttpPost("GetUserName")]

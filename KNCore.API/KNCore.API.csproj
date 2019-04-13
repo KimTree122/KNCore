@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\KNCore.BLL\KNCore.BLL.csproj" />
     <ProjectReference Include="..\KNCore.Comm\KNCore.Comm.csproj" />
+    <ProjectReference Include="..\KNCore.Service\KNCore.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KNCore.Comm.ServiceRegistry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace KNCore.IBLL
 {
-    public interface ICurdBLL<T> where T :class,new()
+    public interface ICurdBLL<T>: IAppService where T :class,new()
     {
         T GetEntity(Expression<Func<T, bool>> whereLamdda);
 

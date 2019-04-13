@@ -6,7 +6,9 @@ using System.Text;
 
 namespace KNCore.DAL.SYS
 {
-    public class SysDicDAL:CurdDAL<SysDic>,ISysDicDAL
-    {
-    }
+    //字典
+    public class SysDicDAL:CurdDAL<SysDic>,ISysDicDAL{}
+
+    //权限
+    public class AuthorityDAL : CurdDAL<Authority>, ISysAuthDAL { }
 }

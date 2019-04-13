@@ -1,4 +1,5 @@
-﻿using KNCore.DAL;
+﻿using KNCore.Comm.ServiceRegistry;
+using KNCore.DAL;
 using KNCore.IDAL;
 using KNCore.Model.CommModel;
 using System;
@@ -18,7 +19,7 @@ namespace KNCore.BLL
 
         public void Dispose()
         {
-            Console.WriteLine("clean");
+            Console.WriteLine("Dispose");
         }
 
         public abstract void SetCurrentDal();

@@ -12,8 +12,9 @@ namespace KNCore.Comm.ServiceRegistry
     {
         public static List<Assembly> LoadCompileAssemblies()
         {
-            List<CompilationLibrary> libs = DependencyContext.Default.CompileLibraries.Where(lib => !lib.Serviceable && lib.Type != "package").ToList();
-
+            
+            List<CompilationLibrary> libs = DependencyContext.Default.CompileLibraries
+                .Where(lib => !lib.Serviceable && lib.Type != "package").ToList();
             List<Assembly> ret = new List<Assembly>();
 
             foreach (var lib in libs)

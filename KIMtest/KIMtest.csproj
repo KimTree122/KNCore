@@ -17,6 +17,7 @@
     <ProjectReference Include="..\KNCore.DapperDAL\KNCore.DapperDAL.csproj" />
     <ProjectReference Include="..\KNCore.IBLL\KNCore.IBLL.csproj" />
     <ProjectReference Include="..\KNCore.RedisDAL\KNCore.RedisDAL.csproj" />
+    <ProjectReference Include="..\KNCore.Service\KNCore.Service.csproj" />
   </ItemGroup>
 
 </Project>

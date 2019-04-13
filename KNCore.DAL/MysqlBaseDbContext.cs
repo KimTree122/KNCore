@@ -16,10 +16,10 @@ namespace KNCore.DAL
                 DbType = DbType.MySql,
                 InitKeyType = InitKeyType.Attribute,
                 IsAutoCloseConnection = true,
-                SlaveConnectionConfigs = new System.Collections.Generic.List<SlaveConnectionConfig>() {
-                    new SlaveConnectionConfig(){ HitRate = 10, ConnectionString = ConfigExtensions.Configuration["ConnectionStrings:ReadDB01"] },
-                    new SlaveConnectionConfig(){ HitRate = 10,ConnectionString = ConfigExtensions.Configuration["ConnectionStrings:ReadDB02"] }
-                }
+                //SlaveConnectionConfigs = new System.Collections.Generic.List<SlaveConnectionConfig>() {
+                //    new SlaveConnectionConfig(){ HitRate = 10, ConnectionString = ConfigExtensions.Configuration["ConnectionStrings:ReadDB01"] },
+                //    new SlaveConnectionConfig(){ HitRate = 10,ConnectionString = ConfigExtensions.Configuration["ConnectionStrings:ReadDB02"] }
+                //}
             });
 
             Db.Aop.OnLogExecuting = (sql, pars) =>

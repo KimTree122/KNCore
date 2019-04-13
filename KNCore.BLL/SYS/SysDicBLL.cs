@@ -14,4 +14,12 @@ namespace KNCore.BLL.SYS
             CurrentDAL = new SysDicDAL();
         }
     }
+
+    public class AuthorityBLL : CurdBLL<Authority>, IAuthorityBLL
+    {
+        public override void SetCurrentDal()
+        {
+            CurrentDAL = new AuthorityDAL();
+        }
+    }
 }

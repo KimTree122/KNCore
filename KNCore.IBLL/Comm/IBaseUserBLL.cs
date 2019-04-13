@@ -6,7 +6,7 @@ using System.Text;
 
 namespace KNCore.IBLL.Comm
 {
-    public interface IBaseUserBLL:ICurdBLL<BaseUser>, IAppService
+    public interface IBaseUserBLL:ICurdBLL<BaseUser>
     {
 
     }

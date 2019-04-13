@@ -8,4 +8,6 @@ namespace KNCore.IDAL.SYS
     public interface ISysDicDAL:ICurdDAL<SysDic>
     {
     }
+
+    public interface ISysAuthDAL : ICurdDAL<Authority> { }
 }

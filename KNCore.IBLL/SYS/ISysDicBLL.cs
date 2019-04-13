@@ -6,7 +6,9 @@ using System.Text;
 
 namespace KNCore.IBLL.SYS
 {
-    public interface ISysDicBLL:ICurdBLL<SysDic>, IAppService
-    {
-    }
+    //字典
+    public interface ISysDicBLL:ICurdBLL<SysDic>{ }
+
+    //权限
+    public interface IAuthorityBLL : ICurdBLL<Authority> { }
 }
