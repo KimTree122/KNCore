@@ -1,6 +1,7 @@
 ﻿using KNCore.Comm.ServiceRegistry;
 using KNCore.Model.SysModel;
 using System;
+using System.Collections.Generic;
 
 namespace KNCore.IService
 {
@@ -8,5 +9,6 @@ namespace KNCore.IService
     {
         int AddAuth(Authority authority);
         int CountAuth();
+        List<Authority> GetAllAuthorities();
     }
 }

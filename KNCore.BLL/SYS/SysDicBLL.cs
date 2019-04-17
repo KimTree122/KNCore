@@ -21,5 +21,11 @@ namespace KNCore.BLL.SYS
         {
             CurrentDAL = new AuthorityDAL();
         }
+
+        public List<Authority> AuthorityOrder()
+        {
+            return null;
+        }
+
     }
 }
