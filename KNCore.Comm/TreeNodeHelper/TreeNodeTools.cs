@@ -6,7 +6,7 @@ using System.Text;
 
 namespace KNCore.Comm.TreeNodeHelper
 {
-    public class TreeNodeComm
+    public class TreeNodeTools
     {
         //委托传入树属性的字典数据
         public delegate Dictionary<string, string> DelTreeAttr(object obj);
@@ -61,7 +61,29 @@ namespace KNCore.Comm.TreeNodeHelper
             return wtnls;
         }
 
-        
+        public List<BaseTree> WebNodeTreeToBaseTree(List<WebTreeNode> webTreeNodes,int fid)
+        {
+            List<BaseTree> baseTrees = new List<BaseTree>();
+            foreach (var wtn in webTreeNodes)
+            {
+                BaseTree bt = new BaseTree() {
+                    Id = wtn.id,
+                    FatherID = fid,
+                    ImagePath = wtn.iconCls,
+                    NodeName = wtn.text,
+                    State = wtn.state
+                };
+                baseTrees.Add(bt);
+                if (wtn.children !=null)
+                {
+                    List<WebTreeNode> trees = (List<WebTreeNode>)wtn.children;
+                    List<BaseTree> sontree = WebNodeTreeToBaseTree(trees, wtn.id);
+                    baseTrees.AddRange(sontree);
+                }
+            }
+
+            return baseTrees;
+        }
 
     }
 }

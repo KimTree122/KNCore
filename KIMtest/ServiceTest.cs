@@ -24,12 +24,25 @@ namespace KIMtest
             _positionSer = new PositionSer();
         }
 
+
+        [TestMethod]
+        public void WebToEntity()
+        {
+            List<Position> positions = _positionSer.GetAllPosition();
+            TreeNodeTools nodeComm = new TreeNodeTools();
+            var webnodes = nodeComm.InitTreeNode<Position>(positions, PositionDic);
+            List<BaseTree> baseTrees = nodeComm.WebNodeTreeToBaseTree(webnodes, 0);
+            Assert.AreEqual(11,baseTrees.Count);
+
+        }
+
+
         [TestMethod]
         public void PositionInit()
         {
             List<Position> positions = _positionSer.GetAllPosition();
-            TreeNodeComm nodeComm = new TreeNodeComm();
-            var webnodes = nodeComm.InitTreeNode<Position>(positions,PositionDic,4);
+            TreeNodeTools nodeComm = new TreeNodeTools();
+            var webnodes = nodeComm.InitTreeNode<Position>(positions,PositionDic);
             string str = JSonHelper.ObjectToJson(webnodes);
             Assert.AreEqual(11, positions.Count);
         }
@@ -55,7 +68,7 @@ namespace KIMtest
         [TestMethod]
         public void AuthorityInit()
         {
-            TreeNodeComm treeNode = new TreeNodeComm();
+            TreeNodeTools treeNode = new TreeNodeTools();
             List<Authority> authorities = _authoritySer.GetAllAuthorities();
 
             List<WebTreeNode> webNodelist = treeNode
