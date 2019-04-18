@@ -10,5 +10,8 @@ namespace KNCore.IService
         int AddAuth(Authority authority);
         int CountAuth();
         List<Authority> GetAllAuthorities();
+        bool UpdateAuth(Authority authority);
+        bool DelAuth(Authority authority);
+
     }
 }

@@ -11,4 +11,7 @@ namespace KNCore.DAL.SYS
 
     //权限
     public class AuthorityDAL : CurdDAL<Authority>, ISysAuthDAL { }
+
+    //职位
+    public class PositionDAL : CurdDAL<Position>, IPositionDAL { }
 }

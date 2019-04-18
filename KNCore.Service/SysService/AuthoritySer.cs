@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace KNCore.Service
 {
-    public class AuthoritySer:IAuthoritySer
+    public class AuthoritySer:BaseService, IAuthoritySer
     {
         
         private readonly IAuthorityBLL _authorityBLL;
@@ -28,26 +28,20 @@ namespace KNCore.Service
             return _authorityBLL.Update(authority);
         }
 
-        public bool delAuth(Authority authority)
+        public bool DelAuth(Authority authority)
         {
             return _authorityBLL.Del(authority);
         }
 
         public List<Authority> GetAllAuthorities()
         {
-            
-            return _authorityBLL.GetEntities(z => z.Id != 0);
+            return _authorityBLL.GetEntities(z =>z.Id != 0);
         }
 
         public int CountAuth()
         {
             int count = _authorityBLL.GetEntities(z => z.Id != 0).Count;
             return count;
-        }
-
-        public void Dispose()
-        {
-            
         }
     }
 }

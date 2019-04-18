@@ -11,4 +11,7 @@ namespace KNCore.IBLL.SYS
 
     //权限
     public interface IAuthorityBLL : ICurdBLL<Authority> { }
+
+    //职位
+    public interface IPositionBLL : ICurdBLL<Position> { }
 }

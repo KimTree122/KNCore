@@ -21,11 +21,13 @@ namespace KNCore.BLL.SYS
         {
             CurrentDAL = new AuthorityDAL();
         }
+    }
 
-        public List<Authority> AuthorityOrder()
+    public class PositionBLL : CurdBLL<Position>, IPositionBLL
+    {
+        public override void SetCurrentDal()
         {
-            return null;
+            CurrentDAL = new PositionDAL();
         }
-
     }
 }

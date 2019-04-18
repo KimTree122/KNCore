@@ -6,26 +6,7 @@ using System.Text;
 
 namespace KNCore.Model.SysModel
 {
-
-    public class BaseTree
-    {
-        [Key]
-        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
-        public int Id { get; set; }
-        public int? FatherID { get; set; }
-        public string NodeName { get; set; }
-    }
-
-    public class Authority:BaseTree
-    {
-        public string Path { get; set; }
-        public int? AuthTypeID { get; set; }
-        public string AuthTypeName { get; set; }
-        public string ImagePath { get; set; }
-        public int? Order { get; set; }
-        public string SysPort { get; set; }
-    }
-
+    //viewModel
     public class WebTreeNode
     {
         public int id { get; set; }
@@ -36,5 +17,33 @@ namespace KNCore.Model.SysModel
         public Dictionary<string, string> attributes { get; set; }
         public object children { get; set; }
     }
+
+
+    public class BaseTree
+    {
+        [Key]
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
+        public int Id { get; set; }
+        public int? FatherID { get; set; }
+        public string State { get; set; }
+        public string NodeName { get; set; }
+        public string ImagePath { get; set; }
+    }
+
+    public class Authority:BaseTree
+    {
+        public string Path { get; set; }
+        public int? AuthTypeID { get; set; }
+        public string AuthTypeName { get; set; }
+        public int? Order { get; set; }
+        public string SysPort { get; set; }
+    }
+
+    public class Position : BaseTree
+    {
+
+    }
+
+
 
 }
