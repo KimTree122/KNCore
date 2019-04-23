@@ -35,7 +35,7 @@ namespace KNCore.Model.SysModel
         public string Path { get; set; }
         public int? AuthTypeID { get; set; }
         public string AuthTypeName { get; set; }
-        public int? Order { get; set; }
+        public int? AOrder { get; set; }
         public string SysPort { get; set; }
     }
 

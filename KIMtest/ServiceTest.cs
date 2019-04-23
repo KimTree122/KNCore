@@ -84,7 +84,7 @@ namespace KIMtest
             Authority au = (Authority)auth;
             Dictionary<string, string> dic = new Dictionary<string, string>
             {
-                { "url", au.Path },{ "AOrder",au.Order.ToString()}, {"AuthTypeID",au.AuthTypeID.ToString() },{ "ParentID",au.FatherID.ToString()}
+                { "url", au.Path },{ "AOrder",au.AOrder.ToString()}, {"AuthTypeID",au.AuthTypeID.ToString() },{ "ParentID",au.FatherID.ToString()}
             };
             return dic;
         }

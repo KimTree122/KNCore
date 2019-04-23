@@ -9,8 +9,8 @@ namespace KNCore.Model.CommModel
     ///<summary>
     ///用户基础登陆信息
     ///</summary>
-    [Table("SYS_LoginUser")]
-    [SugarTable("SYS_LoginUser")] 
+    [Table("LoginUser")]
+    [SugarTable("LoginUser")] 
     public partial class LoginUser
     {
         public LoginUser()
@@ -51,14 +51,14 @@ namespace KNCore.Model.CommModel
         public string LogPWD { get; set; }
 
         /// <summary>
-        /// Desc:
+        /// Desc:电子邮件地址
         /// Default:
         /// Nullable:True
         /// </summary>           
         public string Email { get; set; }
 
         /// <summary>
-        /// Desc:
+        /// Desc:角色列表
         /// Default:
         /// Nullable:True
         /// </summary>           
@@ -70,8 +70,6 @@ namespace KNCore.Model.CommModel
         /// Nullable:False
         /// </summary>           
         public bool? Del { get; set; }
-
-
 
     }
 

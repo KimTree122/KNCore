@@ -28,44 +28,51 @@ namespace KNCore.Model.SysModel
         /// <summary>
         /// Desc:
         /// Default:
-        /// Nullable:False
+        /// Nullable:True
         /// </summary>           
-        public string diccode { get; set; }
+        public string Diccode { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
-        /// Nullable:False
+        /// Nullable:True
         /// </summary>           
-        public string dicmeno { get; set; }
+        public string Dicname { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
-        /// Nullable:False
+        /// Nullable:True
         /// </summary>           
-        public string dickey { get; set; }
+        public string Dickey { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
-        /// Nullable:False
+        /// Nullable:True
         /// </summary>           
-        public string dicvalue { get; set; }
+        public string Dicvalue { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
-        /// Nullable:False
+        /// Nullable:True
         /// </summary>           
-        public float order { get; set; }
+        public string Dicmeno { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
-        /// Nullable:False
+        /// Nullable:True
         /// </summary>           
-        public string dicname { get; set; }
+        public string Dorder { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public bool? isDel { get; set; }
 
     }
 }
