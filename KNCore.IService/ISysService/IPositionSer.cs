@@ -1,11 +1,12 @@
-﻿using KNCore.Model.SysModel;
+﻿using KNCore.Comm.ServiceRegistry;
+using KNCore.Model.SysModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace KNCore.IService.ISysService
 {
-    public interface IPositionSer
+    public interface IPositionSer: IAppService
     {
         int AddPosition(Position position);
         List<Position> GetAllPosition();

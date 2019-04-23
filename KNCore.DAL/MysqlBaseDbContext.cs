@@ -13,7 +13,7 @@ namespace KNCore.DAL
         {
             Db = new SqlSugarClient(new ConnectionConfig() {
                 ConnectionString = ConfigExtensions.Configuration["ConnectionStrings:WriteDB01"],
-                DbType = DbType.MySql,
+                DbType = DbType.SqlServer,
                 InitKeyType = InitKeyType.Attribute,
                 IsAutoCloseConnection = true,
                 //SlaveConnectionConfigs = new System.Collections.Generic.List<SlaveConnectionConfig>() {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KNCore.IDAL.Comm
 {
-    public interface IBaseUserDAL:ICurdDAL<BaseUser>
+    public interface ILoginUserDAL : ICurdDAL<LoginUser>
     {
     }
     

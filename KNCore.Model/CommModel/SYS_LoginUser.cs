@@ -9,11 +9,11 @@ namespace KNCore.Model.CommModel
     ///<summary>
     ///用户基础登陆信息
     ///</summary>
-    [Table("BaseUser")]
-    [SugarTable("BaseUser")] 
-    public partial class BaseUser
+    [Table("SYS_LoginUser")]
+    [SugarTable("SYS_LoginUser")] 
+    public partial class LoginUser
     {
-        public BaseUser()
+        public LoginUser()
         {
 
 
@@ -37,6 +37,13 @@ namespace KNCore.Model.CommModel
         public string UserName { get; set; }
 
         /// <summary>
+        /// Desc:用户账号
+        /// Default:
+        /// Nullable:False
+        /// </summary>           
+        public string UserCode { get; set; }
+
+        /// <summary>
         /// Desc:登陆密码
         /// Default:
         /// Nullable:False
@@ -44,18 +51,28 @@ namespace KNCore.Model.CommModel
         public string LogPWD { get; set; }
 
         /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string RoleList { get; set; }
+
+        /// <summary>
         /// Desc:是否删除
         /// Default:
         /// Nullable:False
         /// </summary>           
-        public bool Del { get; set; }
+        public bool? Del { get; set; }
 
-        /// <summary>
-        /// Desc:用户账号
-        /// Default:
-        /// Nullable:False
-        /// </summary>           
-        public string UserCode { get; set; }
+
 
     }
+
 }

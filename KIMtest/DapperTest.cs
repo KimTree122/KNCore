@@ -14,36 +14,36 @@ namespace KIMtest
         [TestMethod]
         public async Task DapperGetAsync()
         {
-            BaseUser bu = await DapperDataAsync.GetAsync<BaseUser>(1, null, null);
+            LoginUser bu = await DapperDataAsync.GetAsync<LoginUser>(1, null, null);
             Assert.AreEqual("sadmin", bu.UserName);
         }
 
         [TestMethod]
         public async Task DapperInsert()
         {
-            BaseUser bu = await DapperDataAsync.GetAsync<BaseUser>(2, null, null);
+            LoginUser bu = await DapperDataAsync.GetAsync<LoginUser>(2, null, null);
             bu.UserCode = "testNo2";
             bu.UserName = "testerNo2";
             
-            int id =await DapperDataAsync.InsertAsync<BaseUser>(bu, null, null);
+            int id =await DapperDataAsync.InsertAsync<LoginUser>(bu, null, null);
             Assert.AreEqual(6,id);
         }
 
         [TestMethod]
         public async Task DapperDel()
         {
-            BaseUser bu = new BaseUser() { Id = 6 };
-            bool b = await DapperDataAsync.DeleteAsync<BaseUser>(bu);
+            LoginUser bu = new LoginUser() { Id = 6 };
+            bool b = await DapperDataAsync.DeleteAsync<LoginUser>(bu);
             Assert.AreEqual(true,b);
         }
 
         [TestMethod]
         public async Task DapperUpdateAsync()
         {
-            BaseUser bu = await DapperDataAsync.GetAsync<BaseUser>(2, null, null);
+            LoginUser bu = await DapperDataAsync.GetAsync<LoginUser>(2, null, null);
             bu.UserName = "tester";
             bu.Del = false;
-            BaseUser newbu = await DapperDataAsync.UpdateAsync<BaseUser>(bu, null, null);
+            LoginUser newbu = await DapperDataAsync.UpdateAsync<LoginUser>(bu, null, null);
             Assert.AreEqual("tester",newbu.UserName);
         }
     }

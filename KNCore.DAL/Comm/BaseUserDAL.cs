@@ -6,7 +6,7 @@ using System.Text;
 
 namespace KNCore.DAL.Comm
 {
-    public class BaseUserDAL:CurdDAL<BaseUser>,IBaseUserDAL
+    public class LoginUserDAL : CurdDAL<LoginUser>,ILoginUserDAL
     {
     }
 }

@@ -9,11 +9,11 @@ using System.Text;
 
 namespace KNCore.BLL.Comm
 {
-    public class BaseUserBLL : CurdBLL<BaseUser>,IBaseUserBLL
+    public class LoginUserBLL : CurdBLL<LoginUser>, ILoginUserBLL
     {
         public override void SetCurrentDal()
         {
-            CurrentDAL = new BaseUserDAL();
+            CurrentDAL = new LoginUserDAL();
         }
     }
 }

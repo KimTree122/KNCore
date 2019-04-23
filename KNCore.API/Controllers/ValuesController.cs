@@ -12,9 +12,9 @@ namespace KNCore.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private IBaseUserBLL _baseUserBLL;
+        private ILoginUserBLL _baseUserBLL;
 
-        public ValuesController(IBaseUserBLL userBLL)
+        public ValuesController(ILoginUserBLL userBLL)
         {
             _baseUserBLL = userBLL;
         }

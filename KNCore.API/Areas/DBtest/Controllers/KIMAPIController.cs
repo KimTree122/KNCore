@@ -14,11 +14,11 @@ namespace KNCore.API.Areas.DBtest.Controllers
     [ApiController]
     public class KIMAPIController : ControllerBase
     {
-        private readonly IBaseUserBLL _baseUserBLL;
+        private readonly ILoginUserBLL _baseUserBLL;
         private readonly ISysDicBLL _sysDicBLL;
 
 
-        public KIMAPIController(IBaseUserBLL baseUserBLL, ISysDicBLL sysDicBLL)
+        public KIMAPIController(ILoginUserBLL baseUserBLL, ISysDicBLL sysDicBLL)
         {
             _baseUserBLL = baseUserBLL;
             _sysDicBLL = sysDicBLL;

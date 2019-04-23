@@ -16,8 +16,8 @@ namespace KIMtest
         [TestMethod]
         public void CreatEntityCls()
         {
-            MysqlBaseDbContext<BaseUser> sugarDb = new MysqlBaseDbContext<BaseUser>();
-            sugarDb.Db.DbFirst.Where("sysdic").CreateClassFile(@"C:\DataBase\SqlClz");
+            MysqlBaseDbContext<LoginUser> sugarDb = new MysqlBaseDbContext<LoginUser>();
+            sugarDb.Db.DbFirst.Where("SYS_LoginUser").CreateClassFile(@"C:\DataBase\SqlClz");
             
             Assert.AreEqual(1, 1);
         }
@@ -25,7 +25,7 @@ namespace KIMtest
         [TestMethod]
         public void CreatLog()
         {
-            MysqlLogDbContext<BaseUser> logdb = new MysqlLogDbContext<BaseUser>();
+            MysqlLogDbContext<LoginUser> logdb = new MysqlLogDbContext<LoginUser>();
             logdb.Db.DbFirst.Where("LogData").CreateClassFile(@"C:\DataBase\SqlClz");
             Assert.AreEqual(1, 1);
         }
@@ -33,8 +33,8 @@ namespace KIMtest
         [TestMethod]
         public void DbUpdateRange()
         {
-            BaseUserBLL bus = new BaseUserBLL();
-            List<BaseUser> buls = bus.GetPageEntityes(bu => bu.Del == false, bu => bu.Id, 10, 1,true);
+            LoginUserBLL bus = new LoginUserBLL();
+            List<LoginUser> buls = bus.GetPageEntityes(bu => bu.Del == false, bu => bu.Id, 10, 1,true);
             buls[0].UserCode = "sadmin";
             buls[0].UserName = "sadmin";
 
@@ -49,9 +49,9 @@ namespace KIMtest
         [TestMethod]
         public void DbInsert()
         {
-            BaseUserBLL bus = new BaseUserBLL();
+            LoginUserBLL bus = new LoginUserBLL();
             MD5Helper mD5Helper = new MD5Helper();
-            BaseUser bu = new BaseUser() { UserName = "test", UserCode = "test", LogPWD = mD5Helper.CreateMD5Hash("test"), Del = false };
+            LoginUser bu = new LoginUser() { UserName = "test", UserCode = "test", LogPWD = mD5Helper.CreateMD5Hash("test"), Del = false };
             int nbu = bus.Add(bu);
             
             Assert.AreEqual(2, nbu);
@@ -60,9 +60,9 @@ namespace KIMtest
         [TestMethod]
         public void DbUpdate()
         {
-            BaseUserBLL bus = new BaseUserBLL();
+            LoginUserBLL bus = new LoginUserBLL();
             MD5Helper mD5Helper = new MD5Helper();
-            BaseUser bu = new BaseUser() { Id = 2, UserName = "test", UserCode = "test", LogPWD = mD5Helper.CreateMD5Hash("test"), Del = true };
+            LoginUser bu = new LoginUser() { Id = 1, UserName = "sad", UserCode = "sad", LogPWD = mD5Helper.CreateMD5Hash("sad"), Del = false };
 
             int count = bus.Update(bu) ? 1 : 0;
             Assert.AreEqual(1, count);
@@ -72,8 +72,8 @@ namespace KIMtest
         [TestMethod]
         public void DbDelete()
         {
-            BaseUserBLL bus = new BaseUserBLL();
-            BaseUser bu = new BaseUser() { Id = 2 };
+            LoginUserBLL bus = new LoginUserBLL();
+            LoginUser bu = new LoginUser() { Id = 2 };
             int count = bus.Del(bu) ? 1 : 0;
             Assert.AreEqual(1, count);
         }
@@ -81,8 +81,8 @@ namespace KIMtest
         [TestMethod]
         public void DbSelect()
         {
-            BaseUserBLL bus = new BaseUserBLL();
-            List<BaseUser> users = bus.GetEntities(bs => bs.Del == false);
+            LoginUserBLL bus = new LoginUserBLL();
+            List<LoginUser> users = bus.GetEntities(bs => bs.Del == false);
             int count = users.Count;
             Assert.AreEqual(2,count);
         }
