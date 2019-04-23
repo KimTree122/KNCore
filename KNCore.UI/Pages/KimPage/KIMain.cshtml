@@ -11,8 +11,15 @@
     </el-dialog>
 </div>
 
+@section js{
 
-<script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function () {
+                return { visible: false }
+            }
+        })
+    </script>
+}
 
-
-</script>

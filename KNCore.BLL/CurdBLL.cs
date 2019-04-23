@@ -11,6 +11,7 @@ namespace KNCore.BLL
     public abstract class CurdBLL<T> where T:class,new()
     {
         public ICurdDAL<T> CurrentDAL { get; set; }
+        public DbSet<T> Dbset { get; set; }//增加dbset类,增强DAL交互。
 
         public CurdBLL()
         {

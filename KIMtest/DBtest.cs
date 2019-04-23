@@ -31,6 +31,15 @@ namespace KIMtest
         }
 
         [TestMethod]
+        public void LoginUserSQLselect()
+        {
+            LoginUserBLL bus = new LoginUserBLL();
+            List<LoginUser> users =  bus.ForSQLT();
+            Assert.AreEqual(2, users.Count);
+        }
+
+
+        [TestMethod]
         public void DbUpdateRange()
         {
             LoginUserBLL bus = new LoginUserBLL();
