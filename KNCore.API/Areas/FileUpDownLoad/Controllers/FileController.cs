@@ -28,7 +28,7 @@ namespace KNCore.API.Areas.FileUpDownLoad.Controllers
                 var fileExt = FileHelper.GetFileExt(filename.FileName);
                 var path = Utils.AssigendPath(fileExt, directoryRootName);
                 FileHelperCore.CreateFiles(path);
-                using (var stream = new FileStream(rootdic + "\\" + path + filename.FileName, FileMode.Create))
+                using (var stream = new FileStream( path + filename.FileName, FileMode.Create))
                 {
                     try
                     {

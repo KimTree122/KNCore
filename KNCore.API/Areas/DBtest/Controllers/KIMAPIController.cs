@@ -33,7 +33,7 @@ namespace KNCore.API.Areas.DBtest.Controllers
         [HttpGet("GetDicCount")]
         public string GetDicCount()
         {
-            SysDic sysDic = new SysDic() { diccode = "1", dicname = "1", dickey = "1", dicvalue = "1", dicmeno = "1", order = 1 };
+            SysDic sysDic = new SysDic() { Diccode = "1", Dicname = "1", Dickey = "1", Dicvalue = "1", Dicmeno = "1", Dorder = "1" };
             int count = _sysDicBLL.Add(sysDic);
             return "ID:" + count;
         }
@@ -42,7 +42,7 @@ namespace KNCore.API.Areas.DBtest.Controllers
         public string DelDic(string dickey)
         {
             var list = Request.Form.ToList();
-            int count = _sysDicBLL.DelRange(e => e.dickey == dickey);
+            int count = _sysDicBLL.DelRange(e => e.Dickey == dickey);
             return "删除" + count;
         }
 

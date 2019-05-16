@@ -22,7 +22,7 @@ namespace KNCore.Comm.FileHelper
         /// 包含应用程序的目录的绝对路径
         /// </summary>
         //private static string _ContentRootPath = _hostingEnvironment.ContentRootPath;
-        private static readonly string _ContentRootPath = ConfigExtensions.Configuration["UploadFileDirectory:FileDirectory"];
+        private static readonly string _ContentRootPath = ConfigExtensions.Configuration["UploadFile:DirectoryRootPath"];
 
         private static readonly string _errorImage = ConfigExtensions.Configuration["ImageConifg:errorImage"];
 
@@ -287,7 +287,8 @@ namespace KNCore.Comm.FileHelper
         /// <returns></returns>
         public static string MapPath(string path)
         {
-            return Path.Combine(_ContentRootPath, path.TrimStart('~', '/').Replace("/", DirectorySeparatorChar));
+           
+            return Path.Combine("", path.TrimStart('~', '/').Replace("/", DirectorySeparatorChar));
         }
         /// <summary>
         /// 获取文件绝对路径（异步方式）
