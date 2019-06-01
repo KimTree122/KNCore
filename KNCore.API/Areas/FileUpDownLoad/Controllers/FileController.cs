@@ -19,7 +19,7 @@ namespace KNCore.API.Areas.FileUpDownLoad.Controllers
         private readonly string directoryRootName = ConfigExtensions.Configuration["UploadFile:DirectoryName"];
 
         [HttpPost("UpLoadFile")]
-        public async Task<JsonResult> UpLoadFile(IFormCollection file)
+        public async Task<JsonResult> UpLoadFile(string id, IFormCollection file)
         {
             var filenames = file.Files;
             string fn = string.Empty;

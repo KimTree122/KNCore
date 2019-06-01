@@ -6,6 +6,7 @@ using KNCore.IBLL.SYS;
 using KNCore.IService;
 using KNCore.IService.ISysService;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace KNCore.API.Areas.DBtest.Controllers
 {
@@ -44,7 +45,17 @@ namespace KNCore.API.Areas.DBtest.Controllers
         [HttpGet("Mytest")]
         public string Mytest()
         {
-            return "mytest";
+            string name = string.Empty, value = string.Empty;
+            string strjson = Request.Query["info"];
+            JObject json = JObject.Parse(strjson);
+            foreach (var pro in json.Properties())
+            {
+                name += pro.Name + ",";
+                value += "'" + pro.Value + "',";
+            }
+
+            string str = "insert into xxx (" + name.Substring(0, name.Length - 1) + ") values (" + value.Substring(0, value.Length - 1) + ")";
+            return str;
         }
 
     }

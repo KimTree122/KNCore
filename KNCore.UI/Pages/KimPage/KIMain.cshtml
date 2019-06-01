@@ -23,7 +23,8 @@
 
                 var url = "http://192.168.61.93:7418/FileUpDownLoad/File/UpLoadFile";
 
-                formData.append('file', mfile);
+                formData.append('file', mfile);//文件添加
+                formData.append('id','paramstest');//添加参数
                 $.ajax({
                     url: url,
                     type: "POST",
@@ -40,6 +41,20 @@
                 });
 
 
+            });
+        }
+
+        function virtualData() {
+            var alldatafield = $('[data-field]').each(function (index) {
+                var layout = $(this);
+                if (layout.attr('class') != undefined) {
+                    var cls = layout.attr('class');
+                    if (cls.indexOf('easyui-datebox') > -1) {
+                        layout.textbox('setValue', '2019-05-16');
+                    } else if (cls.indexOf('easyui-textbox') > -1) {
+                        layout.textbox('setValue', layout.attr('data-field'));
+                    }
+                }
             });
         }
 
