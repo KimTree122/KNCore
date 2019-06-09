@@ -540,9 +540,9 @@ namespace KNCore.Comm
             if (IsVideos(fileExt))
                 return path + "/upload/videos/" + DateTime.Now.ToString("yyyyMMdd") + "/";
             if (IsDocument(fileExt))
-                return "/upload/files/" + DateTime.Now.ToString("yyyyMMdd") + "/";
+                return path + "/upload/files/" + DateTime.Now.ToString("yyyyMMdd") + "/";
             if (IsMusics(fileExt))
-                return "/upload/musics/" + DateTime.Now.ToString("yyyyMMdd") + "/";
+                return path + "/upload/musics/" + DateTime.Now.ToString("yyyyMMdd") + "/";
             return path + "/uploadothers/";
 
         }

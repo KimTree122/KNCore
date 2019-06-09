@@ -19,6 +19,7 @@ namespace KNCore.API.Areas.FileUpDownLoad.Controllers
         private readonly string directoryRootName = ConfigExtensions.Configuration["UploadFile:DirectoryName"];
 
         [HttpPost("UpLoadFile")]
+        //无需定义file参数名只需要传文件
         public async Task<JsonResult> UpLoadFile(string id, IFormCollection file)
         {
             var filenames = file.Files;
@@ -28,7 +29,7 @@ namespace KNCore.API.Areas.FileUpDownLoad.Controllers
                 var fileExt = FileHelper.GetFileExt(filename.FileName);
                 var path = Utils.AssigendPath(fileExt, directoryRootName);
                 FileHelperCore.CreateFiles(path);
-                using (var stream = new FileStream( path + filename.FileName, FileMode.Create))
+                using (var stream = new FileStream(path + filename.FileName, FileMode.Create))
                 {
                     try
                     {
@@ -148,7 +149,7 @@ namespace KNCore.API.Areas.FileUpDownLoad.Controllers
 
         private Dictionary<string, string> GetMimeTypes()
         {
-            return new Dictionary<string, string>{{".txt", "text/plain"},{".pdf", "application/pdf"},{".doc", "application/vnd.ms-word"},{".docx", "application/vnd.ms-word"},{".xls", "application/vnd.ms-excel"},{".xlsx", "application/vnd.openxmlformats officedocument.spreadsheetml.sheet"},{".png", "image/png"},{".jpg", "image/jpeg"},{".jpeg", "image/jpeg"},{".gif", "image/gif"},{".csv", "text/csv"}};
+            return new Dictionary<string, string> { { ".txt", "text/plain" }, { ".pdf", "application/pdf" }, { ".doc", "application/vnd.ms-word" }, { ".docx", "application/vnd.ms-word" }, { ".xls", "application/vnd.ms-excel" }, { ".xlsx", "application/vnd.openxmlformats officedocument.spreadsheetml.sheet" }, { ".png", "image/png" }, { ".jpg", "image/jpeg" }, { ".jpeg", "image/jpeg" }, { ".gif", "image/gif" }, { ".csv", "text/csv" } };
         }
 
 

@@ -22,20 +22,19 @@
                 var formData = new FormData();
 
                 var url = "http://192.168.61.93:7418/FileUpDownLoad/File/UpLoadFile";
-
                 formData.append('file', mfile);//文件添加
-                formData.append('id','paramstest');//添加参数
+                formData.append('id', 'paramstest');//添加参数
                 $.ajax({
                     url: url,
                     type: "POST",
                     dataType: "JSON",
                     data: formData,
                     async: false,
-                    processData: false,  
+                    processData: false,
                     contentType: false,
                     success: function (data) {
                         console.log(data);
-                    }, error: function (r,s,e) {
+                    }, error: function (r, s, e) {
                         console.log(e);
                     }
                 });
@@ -55,6 +54,22 @@
                         layout.textbox('setValue', layout.attr('data-field'));
                     }
                 }
+            });
+        }
+
+
+        function request() {
+            var p = new Promise(function (resolve, reject) {
+                $.post(url, params, function (data) {
+                    resolve();
+                }).error(function (r, s, e) {
+                    reject();
+                })
+            });
+            p.then(function (data) {
+
+            }).catch(function (err) {
+
             });
         }
 
