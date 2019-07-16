@@ -73,6 +73,11 @@
             });
         }
 
+        function addFileText(filename, fileid) {
+            var filetext = $("<div style=\"margin:20px\"> <input class=\"easyui-textbox\" value='" + filename + "' style=\"width:100%;\" fileid='" + fileid + "' iconAlign='left' editable=\"false\" data-options=\" iconWidth: 22,icons: [{ iconCls:'icon-remove',handler: function(e){ delFile($(e.data.target))} },{iconCls:'icon-search',handler: function(e){ showFile($(e.data.target))}}] \"></div>").appendTo("#appendix");
+            $.parser.parse(filetext);
+        }
+
     </script>
 }
 
