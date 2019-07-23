@@ -13,5 +13,6 @@ namespace KNCore.UI.Pages.KimPage
         {
 
         }
+
     }
 }

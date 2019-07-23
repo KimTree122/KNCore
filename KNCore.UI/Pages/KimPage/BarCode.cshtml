@@ -1,0 +1,53 @@
+﻿@page
+@{
+    ViewData["Title"] = "BarCode";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+
+
+
+<div>
+    <label>条码</label>
+    <input type="text" id="txt_bar" />
+    <input type="button" id="btn_creat" value="生成" />
+    <div id="barcode"></div>
+
+</div>
+
+@section js{
+    <script src="~/js/jquery.qrcode.js"></script>
+    <script src="~/js/utf.js"></script>
+
+    <script>
+        //网页生成二维码功能
+        $().ready(function () {
+            InitLayout();
+        });
+
+        function InitLayout() {
+            $('#btn_creat').click(function () {
+                var bartext = $('#txt_bar').val();
+                $('#barcode').empty();//清除容器内子元素
+                CreatBarCode(bartext)//生成二维码
+            });
+
+            function CreatBarCode(bartext) {
+                $('#barcode').qrcode({
+                    render: "canvas",
+                    text: bartext,
+                    width: "200",
+                    height: "200",
+                    background: "#ffffff",
+                    foreground: "#000000",
+                    //image:""
+                });
+            }
+
+        }
+
+    </script>
+
+}
+
+
+
