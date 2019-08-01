@@ -7,6 +7,11 @@
 <div>
     <input type="file" id="fb" />
 
+    <table>
+        <tr>
+            <th data-options="field:'credititem01',width:100,align:'center',editor:{type:'validatebox',options:{validType:'CustomNum'}},sortable:true" formatter="fornumber2">奖励</th>
+        </tr>
+    </table>
 </div>
 
 @section js{
@@ -38,8 +43,6 @@
                         console.log(e);
                     }
                 });
-
-
             });
         }
 
@@ -77,6 +80,15 @@
             var filetext = $("<div style=\"margin:20px\"> <input class=\"easyui-textbox\" value='" + filename + "' style=\"width:100%;\" fileid='" + fileid + "' iconAlign='left' editable=\"false\" data-options=\" iconWidth: 22,icons: [{ iconCls:'icon-remove',handler: function(e){ delFile($(e.data.target))} },{iconCls:'icon-search',handler: function(e){ showFile($(e.data.target))}}] \"></div>").appendTo("#appendix");
             $.parser.parse(filetext);
         }
+
+        $.extend($.fn.validatebox.defaults.rules, {
+            CustomNum: {//验证数字   
+                validator: function (value, param) {
+                    return EasyLib.Reg.IsNum(value);
+                },
+                message: "不合法数字"
+            }
+        });
 
     </script>
 }
