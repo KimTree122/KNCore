@@ -33,7 +33,7 @@ namespace KNCore.Model.CommModel
         /// Default:
         /// Nullable:False
         /// </summary>  
-        [SugarColumn(ColumnName = "UserName")]
+        [SugarColumn(ColumnName = "nameuser")]
         public string UserName { get; set; }
 
         /// <summary>

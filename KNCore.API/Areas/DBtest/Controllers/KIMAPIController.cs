@@ -27,6 +27,11 @@ namespace KNCore.API.Areas.DBtest.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get()
         {
+            //所有post表单数据
+            var post = HttpContext.Request.Form.Keys;
+            //所有get参数
+            var get = HttpContext.Request.QueryString;
+
             return "123";
         }
 
