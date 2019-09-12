@@ -1,0 +1,76 @@
+﻿@page
+@{
+    ViewData["Title"] = "ExcelReader";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+
+
+<div>
+    <input id="importexcel" type="file" name="fileupload" value="文件上传" accept="xls,xlsx" />
+</div>
+
+@section js{
+
+
+<script src="~/js/ExcelReader.js"></script>
+
+<script>
+    $().ready(function () {
+        InitLayout();
+    });
+
+    function InitLayout() {
+        $('#importexcel').change(function (e) {
+            $.ajaxSettings.async = false;
+            var files = e.target.files;
+            var importexcel;
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(files[0]);  
+            fileReader.onload = function (ev) {
+                try {
+                    var data = ev.target.result,
+                        workbook = XLSX.read(data, {
+                            type: 'binary'
+                        }), // 以二进制流方式读取得到整份excel表格对象
+                        table = []; // 存储获取到的数据
+                } catch (e) {
+                    console.log('文件类型不正确');
+                    return;
+                }
+
+                // 表格的表格范围，可用于判断表头是否数量是否正确
+                var fromTo = '';
+                // 遍历每张表读取
+                for (var sheet in workbook.Sheets) {
+                    if (workbook.Sheets.hasOwnProperty(sheet)) {
+                        fromTo = workbook.Sheets[sheet]['!ref'];
+                        importexcel = table.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+                        break; // 只取第一张表
+                    }
+                }
+
+                console.log(importexcel);
+                
+            };
+
+            setTimeout(function () {
+                fileReader.readAsBinaryString(files[0]);
+                $.ajaxSettings.async = true;
+            }, 1000);
+            
+            // 以二进制方式打开文件
+
+           
+        });
+    }
+
+    function FileBoxChange() {
+        $.ajaxSettings.async = false;
+        var files = document.getElementById('filebox').files[0];
+        var importexcel;
+        var fileReader = new FileReader();
+    }
+  
+
+</script>
+    }
