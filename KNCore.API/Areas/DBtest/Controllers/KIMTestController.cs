@@ -83,6 +83,10 @@ namespace KNCore.API.Areas.DBtest.Controllers
             return str;
         }
 
+        /// <summary>
+        /// json格式输入获取参数
+        /// </summary>
+        /// <returns></returns>
         [HttpPost("InputStream")]
         public  string InputStream()
         {
@@ -90,7 +94,7 @@ namespace KNCore.API.Areas.DBtest.Controllers
             //await Request.Body.ReadAsync(buffer, 0, buffer.Length);
             Request.Body.Read(buffer, 0, buffer.Length);
             var body = Encoding.UTF8.GetString(buffer);
-            //string getjson = Encoding.UTF8.GetString(b);
+            
             return body;
         }
 
