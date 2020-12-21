@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using KNCore.IBLL.SYS;
 using KNCore.IService;
@@ -79,6 +81,17 @@ namespace KNCore.API.Areas.DBtest.Controllers
 
             string str = "insert into xxx (" + name.Substring(0, name.Length - 1) + ") values (" + value.Substring(0, value.Length - 1) + ")";
             return str;
+        }
+
+        [HttpPost("InputStream")]
+        public  string InputStream()
+        {
+            var buffer = new byte[Convert.ToInt32(Request.ContentLength)];
+            //await Request.Body.ReadAsync(buffer, 0, buffer.Length);
+            Request.Body.Read(buffer, 0, buffer.Length);
+            var body = Encoding.UTF8.GetString(buffer);
+            //string getjson = Encoding.UTF8.GetString(b);
+            return body;
         }
 
     }
