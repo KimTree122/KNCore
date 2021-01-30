@@ -30,5 +30,17 @@
             <response code="201">返回value字符串</response>
             <response code="400">如果id为空</response>  
         </member>
+        <member name="M:KNCore.API.Areas.DBtest.Controllers.KIMTestController.InputStream">
+            <summary>
+            json格式输入获取参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KNCore.API.Areas.DBtest.Controllers.KIMTestController.InputStreamFromBody(System.Object)">
+            <summary>
+            json格式输入获取参数
+            </summary>
+            <returns></returns>a
+        </member>
     </members>
 </doc>

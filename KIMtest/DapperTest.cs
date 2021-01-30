@@ -12,6 +12,13 @@ namespace KIMtest
     public class DapperTest
     {
         [TestMethod]
+        public void stam()
+        {
+            Assert.AreEqual("sadmin", "");
+        }
+
+
+        [TestMethod]
         public async Task DapperGetAsync()
         {
             LoginUser bu = await DapperDataAsync.GetAsync<LoginUser>(1, null, null);
@@ -24,9 +31,9 @@ namespace KIMtest
             LoginUser bu = await DapperDataAsync.GetAsync<LoginUser>(2, null, null);
             bu.UserCode = "testNo2";
             bu.UserName = "testerNo2";
-            
-            int id =await DapperDataAsync.InsertAsync<LoginUser>(bu, null, null);
-            Assert.AreEqual(6,id);
+
+            int id = await DapperDataAsync.InsertAsync<LoginUser>(bu, null, null);
+            Assert.AreEqual(6, id);
         }
 
         [TestMethod]
@@ -34,7 +41,17 @@ namespace KIMtest
         {
             LoginUser bu = new LoginUser() { Id = 6 };
             bool b = await DapperDataAsync.DeleteAsync<LoginUser>(bu);
-            Assert.AreEqual(true,b);
+
+            Assert.AreEqual(true, b);
+        }
+
+        public void test()
+        {
+            LoginUser bu = new LoginUser() { Id = 6 };
+            bool b = true;
+            Task.Run(async () => {
+               b =  await DapperDataAsync.DeleteAsync<LoginUser>(bu);
+            });
         }
 
         [TestMethod]

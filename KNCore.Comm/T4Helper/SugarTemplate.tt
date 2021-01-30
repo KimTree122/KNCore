@@ -1,0 +1,41 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="$(SolutionDir)\KNCore.Comm\T4Helper\SqlSugar.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#@ include file="$(ProjectDir)/T4Helper/T4Producter.ttinclude"  #>
+
+// 设置数据库连接字符串：MssqlHelper.connStr="Server=MonkSoul;Database=AppSoft2.0.IO;Uid=sa;Password=000000;";
+//Server=192.168.61.248;Database=XFTools;Uid=sa;Password=123456;
+//Server=192.168.2.161;Database=XFTools;Uid=jxadmin;Password=Adminjx0628;
+<# MssqlHelper.connStr="Server=192.168.61.93;Database=AppDB;Uid=sa;Password=147852;"; #>
+
+
+// 获取解决方案目录
+<# string SolutionDir=Host.ResolveAssemblyReference("$(SolutionDir)"); #>
+//项目目录
+<# string Projectdir="Swt.Public."; #>
+<# string BLLdir = "BLL"; #>
+<# string iBLLdir = "IBLL"; #>
+<# string DLLdir = "DLL"; #>
+<# string iDLLdir = "iDLL"; #>
+<# string Model = "Model"; #>
+<# string API = "TestAPI"; #>
+<# string TargetPath = "Public"; #>
+
+
+//表名
+<# string tableName = "Sys_User"; #>
+//功能模块 如果为空即保存在根目录
+<# string moudel = "Public"; #>
+
+// 生成所有实体层实体类文件
+
+<# MssqlHelper.CreatCSFile(SolutionDir,moudel,tableName); #>
+
+
+<#
+
+#> 

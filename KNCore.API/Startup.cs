@@ -22,7 +22,7 @@ namespace KNCore.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //依赖注入
             services.RegisterAppServices();
             //跨域设置
@@ -50,7 +50,7 @@ namespace KNCore.API
                 });
                 var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);//获取应用程序所在目录（绝对，不受工作目录影响，建议采用此方法获取路径）
                 var xmlPath = Path.Combine(basePath, "KNCore.API.xml");
-                c.IncludeXmlComments(xmlPath);
+                //c.IncludeXmlComments(xmlPath);
             });
             
             #endregion

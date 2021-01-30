@@ -4,15 +4,19 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KNCore.Comm.Filter;
 using KNCore.IBLL.SYS;
 using KNCore.IService;
 using KNCore.IService.ISysService;
+using KNCore.Model;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
 namespace KNCore.API.Areas.DBtest.Controllers
 {
     [Route("DBtest/[controller]")]
+    [UserAuthFilter]
+    [Area("DBtest")]
     public class KIMTestController : Controller
     {
         private readonly IAuthoritySer _sysAuthSer;
@@ -94,8 +98,28 @@ namespace KNCore.API.Areas.DBtest.Controllers
             //await Request.Body.ReadAsync(buffer, 0, buffer.Length);
             Request.Body.Read(buffer, 0, buffer.Length);
             var body = Encoding.UTF8.GetString(buffer);
-            
+
+            //var data = getdataA();
+            //同步ESB代码
+            //MethonA(serid,data)
             return body;
+        }
+
+        /// <summary>
+        /// json格式输入获取参数
+        /// </summary>
+        /// <returns></returns>a
+        [HttpPost("InputStreamFromBody")]
+        public ActionResult InputStreamFromBody([FromBody] dynamic json)
+        {
+            
+            var str = json;
+            //同步ESB代码
+            //MethonA()
+            //var data = getdataA();
+            ApiResult result = new ApiResult() { Main = str,Message = "success" };
+
+            return new JsonResult(result);
         }
 
     }
